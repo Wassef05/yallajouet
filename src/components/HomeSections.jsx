@@ -1,8 +1,8 @@
 import { allProducts, promoPacks } from '../data/products.js'
-import ProductCard from './ProductCard.jsx'
+import ProductCardShowcase from './ProductCardShowcase.jsx'
 import PromoPackCard from './PromoPackCard.jsx'
 
-export default function HomeSections({ onNavigateToCatalog, onAddToCart }) {
+export default function HomeSections({ onNavigateToCatalog, onAddToCart, onViewDetail }) {
   // 1. Draisiennes & Vélos
   const bikeProducts = allProducts.filter((p) => p.category === 'bikes')
 
@@ -36,10 +36,11 @@ export default function HomeSections({ onNavigateToCatalog, onAddToCart }) {
 
           <div className="home-cards-grid modern-cards-grid">
             {bikeProducts.map((product) => (
-              <ProductCard
+              <ProductCardShowcase
                 key={product.id}
                 product={product}
                 onAddToCart={onAddToCart}
+                onViewDetail={onViewDetail}
               />
             ))}
           </div>
@@ -84,10 +85,11 @@ export default function HomeSections({ onNavigateToCatalog, onAddToCart }) {
 
           <div className="home-cards-grid modern-cards-grid">
             {montessoriProducts.map((product) => (
-              <ProductCard
+              <ProductCardShowcase
                 key={product.id}
                 product={product}
                 onAddToCart={onAddToCart}
+                onViewDetail={onViewDetail}
               />
             ))}
           </div>

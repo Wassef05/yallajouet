@@ -2,7 +2,7 @@ import { allProducts, promoPacks } from '../data/products.js'
 import ProductCard from './ProductCard.jsx'
 import PromoPackCard from './PromoPackCard.jsx'
 
-export default function PromotionsPage({ onBackToHome, onAddToCart }) {
+export default function PromotionsPage({ onBackToHome, onAddToCart, onViewDetail }) {
   const promoProducts = allProducts.filter((p) => p.oldPrice !== null || p.category === 'promo')
 
   const savingsTotal = promoProducts.reduce((acc, p) => {
@@ -12,36 +12,55 @@ export default function PromotionsPage({ onBackToHome, onAddToCart }) {
 
   return (
     <div className="promotions-page">
-      {/* Hero Banner */}
-      <section className="promos-hero">
-        <div className="promos-hero-bg" aria-hidden="true" />
+      {/* Unified Page Header — Light & Warm */}
+      <section className="unified-page-header">
         <div className="container">
-          <nav className="page-breadcrumb" aria-label="Fil d'Ariane">
+          <nav className="unified-breadcrumb" aria-label="Fil d'Ariane">
             <button type="button" onClick={onBackToHome} className="breadcrumb-link">Accueil</button>
             <span className="breadcrumb-sep">/</span>
             <span className="breadcrumb-current">Promotions</span>
           </nav>
-          <div className="promos-hero-content">
-            <span className="promos-hero-badge">🔥 Soldes en cours</span>
-            <h1 className="promos-hero-title">Nos Produits<br /><em>en Promotion</em></h1>
-            <p className="promos-hero-desc">
+          <div className="unified-page-hero-content">
+            <span className="unified-page-eyebrow">✦ SÉLECTION PRIVILÈGE & BONS PLANS ✦</span>
+            <h1 className="unified-page-title">
+              Promotions &amp; Offres Spéciales
+              <span className="nav-badge badge-promo page-title-badge">Soldes</span>
+            </h1>
+            <p className="unified-page-desc">
               Des offres exclusives sélectionnées pour vous — packs coffrets, réductions jusqu'à -64%
               sur nos meilleures références. Stocks limités !
             </p>
-            <div className="promos-hero-stats">
-              <div className="promos-stat">
+            <div className="unified-header-stats">
+              <div className="uh-stat">
                 <strong>{promoPacks.length}</strong>
                 <span>packs exclusifs</span>
               </div>
-              <div className="promos-stat">
-                <strong>-{Math.round(savingsTotal)}DT</strong>
-                <span>d'économies cumulées</span>
+              <div className="uh-stat">
+                <strong>Jusqu'à -64%</strong>
+                <span>de réduction</span>
               </div>
-              <div className="promos-stat">
+              <div className="uh-stat">
                 <strong>Limité</strong>
                 <span>stocks disponibles</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Savings Highlight Strip */}
+      <section className="promos-savings-strip">
+        <div className="container">
+          <div className="pss-card">
+            <span className="pss-stamp" aria-hidden="true">Bons plans</span>
+            <div className="pss-text">
+              <strong>{savingsTotal.toFixed(2).replace('.', ',')} DT d'économies</strong>
+              <span>
+                cumulées sur {promoProducts.length} articles et {promoPacks.length} packs exclusifs —
+                des remises réelles, jusqu'à -64% sur le prix atelier.
+              </span>
+            </div>
+            <span className="pss-note" aria-hidden="true">petits prix garantis !</span>
           </div>
         </div>
       </section>
@@ -85,6 +104,7 @@ export default function PromotionsPage({ onBackToHome, onAddToCart }) {
                 key={product.id}
                 product={product}
                 onAddToCart={onAddToCart}
+                onViewDetail={onViewDetail}
               />
             ))}
           </div>

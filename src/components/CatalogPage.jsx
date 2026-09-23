@@ -4,7 +4,7 @@ import { IconSearch } from '../assets/icons.jsx'
 import ProductCard from './ProductCard.jsx'
 import PromoPackCard from './PromoPackCard.jsx'
 
-export default function CatalogPage({ initialCategory = 'all', onBackToHome, onAddToCart }) {
+export default function CatalogPage({ initialCategory = 'all', onBackToHome, onAddToCart, onViewDetail }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState(initialCategory)
   const [selectedAge, setSelectedAge] = useState('all')
@@ -100,35 +100,40 @@ export default function CatalogPage({ initialCategory = 'all', onBackToHome, onA
 
   return (
     <div className="catalog-page">
-      {/* Breadcrumb / Return Home */}
-      <div className="catalog-page-topbar">
+      {/* Unified Page Header — Light & Warm */}
+      <section className="unified-page-header">
         <div className="container">
-          <div className="topbar-flex">
-            <nav className="catalog-breadcrumb" aria-label="Fil d'Ariane">
-              <button type="button" onClick={onBackToHome} className="breadcrumb-link">
-                Accueil
-              </button>
-              <span className="breadcrumb-sep">/</span>
-              <span className="breadcrumb-current">Nos Produits</span>
-            </nav>
-
-            <button type="button" onClick={onBackToHome} className="btn-back-home">
-              ← Retour à l'accueil
+          <nav className="unified-breadcrumb" aria-label="Fil d'Ariane">
+            <button type="button" onClick={onBackToHome} className="breadcrumb-link">
+              Accueil
             </button>
+            <span className="breadcrumb-sep">/</span>
+            <span className="breadcrumb-current">Nos Produits</span>
+          </nav>
+
+          <div className="unified-page-hero-content">
+            <span className="unified-page-eyebrow">✦ CATALOGUE OFFICIEL · YALLA JOUET ✦</span>
+            <h1 className="unified-page-title">Nos Produits &amp; Univers de Jeux</h1>
+            <p className="unified-page-desc">
+              Explorez notre sélection complète avec recherche instantanée et filtres par pédagogie, tranche d'âge et budget.
+            </p>
+            <div className="unified-header-stats">
+              <div className="uh-stat">
+                <strong>{allProducts.length}</strong>
+                <span>jouets au catalogue</span>
+              </div>
+              <div className="uh-stat">
+                <strong>100%</strong>
+                <span>bois naturel certifié</span>
+              </div>
+              <div className="uh-stat">
+                <strong>24/48h</strong>
+                <span>livraison express</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Catalog Main Header */}
-      <header className="catalog-page-header">
-        <div className="container">
-          <span className="catalog-page-eyebrow">✦ CATALOGUE OFFICIEL · YALLA JOUET ✦</span>
-          <h1 className="catalog-page-title">Nos Produits &amp; Univers de Jeux</h1>
-          <p className="catalog-page-subtitle">
-            Explorez notre sélection complète avec recherche instantanée et filtres par pédagogie, tranche d'âge et budget.
-          </p>
-        </div>
-      </header>
+      </section>
 
       {/* Filter and Search Toolbar */}
       <section className="catalog-toolbar-section">
@@ -281,6 +286,7 @@ export default function CatalogPage({ initialCategory = 'all', onBackToHome, onA
                   key={product.id}
                   product={product}
                   onAddToCart={onAddToCart}
+                  onViewDetail={onViewDetail}
                 />
               ))}
             </div>

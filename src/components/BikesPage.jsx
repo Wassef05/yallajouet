@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { allProducts } from '../data/products.js'
-import ProductCard from './ProductCard.jsx'
+import ProductCardShowcase from './ProductCardShowcase.jsx'
 
-export default function BikesPage({ onBackToHome, onAddToCart }) {
+export default function BikesPage({ onBackToHome, onAddToCart, onViewDetail }) {
   const [sort, setSort] = useState('popular')
 
   const bikeProducts = allProducts
@@ -16,32 +16,34 @@ export default function BikesPage({ onBackToHome, onAddToCart }) {
 
   return (
     <div className="bikes-page">
-      {/* Hero Banner */}
-      <section className="bikes-page-hero">
-        <div className="bikes-hero-bg" aria-hidden="true" />
+      {/* Unified Page Header — Light & Warm */}
+      <section className="unified-page-header">
         <div className="container">
-          <nav className="page-breadcrumb" aria-label="Fil d'Ariane">
+          <nav className="unified-breadcrumb" aria-label="Fil d'Ariane">
             <button type="button" onClick={onBackToHome} className="breadcrumb-link">Accueil</button>
             <span className="breadcrumb-sep">/</span>
             <span className="breadcrumb-current">Draisiennes & Vélos</span>
           </nav>
-          <div className="bikes-hero-content">
-            <span className="bikes-hero-eyebrow">✦ MOBILITÉ & ÉQUILIBRE NATUREL ✦</span>
-            <h1 className="bikes-hero-title">Draisiennes &amp; Vélos<br /><em>d'Équilibre</em></h1>
-            <p className="bikes-hero-desc">
+          <div className="unified-page-hero-content">
+            <span className="unified-page-eyebrow">✦ MOBILITÉ & ÉQUILIBRE NATUREL ✦</span>
+            <h1 className="unified-page-title">
+              Draisiennes &amp; Vélos
+              <span className="nav-badge page-title-badge">Nouveau</span>
+            </h1>
+            <p className="unified-page-desc">
               Des vélos d'équilibre en bois certifié, conçus pour développer la coordination,
               la confiance et la motricité globale dès 18 mois — sans petites roues, sans compromis.
             </p>
-            <div className="bikes-hero-stats">
-              <div className="bikes-stat">
+            <div className="unified-header-stats">
+              <div className="uh-stat">
                 <strong>{bikeProducts.length}</strong>
                 <span>modèles disponibles</span>
               </div>
-              <div className="bikes-stat">
+              <div className="uh-stat">
                 <strong>24/48h</strong>
                 <span>livraison express</span>
               </div>
-              <div className="bikes-stat">
+              <div className="uh-stat">
                 <strong>CE</strong>
                 <span>certifié Europe</span>
               </div>
@@ -112,10 +114,11 @@ export default function BikesPage({ onBackToHome, onAddToCart }) {
 
           <div className="bikes-page-grid">
             {bikeProducts.map((product) => (
-              <ProductCard
+              <ProductCardShowcase
                 key={product.id}
                 product={product}
                 onAddToCart={onAddToCart}
+                onViewDetail={onViewDetail}
               />
             ))}
           </div>
@@ -135,10 +138,10 @@ export default function BikesPage({ onBackToHome, onAddToCart }) {
                 ce qui lui permet d'acquérir l'équilibre avant même de pédaler.
               </p>
               <ul className="bikes-edu-list">
-                <li>✓ Développe la coordination et l'équilibre dès 18 mois</li>
-                <li>✓ Renforce la confiance en soi et l'autonomie</li>
-                <li>✓ Transition naturelle vers le vélo pédales sans roulettes</li>
-                <li>✓ Matériaux bois certifiés, sans BPA ni phtalates</li>
+                <li>Développe la coordination et l'équilibre dès 18 mois</li>
+                <li>Renforce la confiance en soi et l'autonomie</li>
+                <li>Transition naturelle vers le vélo à pédales sans roulettes</li>
+                <li>Matériaux bois certifiés, sans BPA ni phtalates</li>
               </ul>
             </div>
             <div className="bikes-edu-visual">

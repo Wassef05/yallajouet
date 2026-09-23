@@ -63,20 +63,26 @@ export default function CartPage({ cartItems = [], onUpdateCart, onClearCart, on
 
   return (
     <div className="cart-page">
-      {/* Header */}
-      <section className="cart-page-header">
+      {/* Unified Page Header — Light & Warm */}
+      <section className="unified-page-header">
         <div className="container">
-          <nav className="page-breadcrumb" aria-label="Fil d'Ariane">
+          <nav className="unified-breadcrumb" aria-label="Fil d'Ariane">
             <button type="button" onClick={onBackToHome} className="breadcrumb-link">Accueil</button>
             <span className="breadcrumb-sep">/</span>
             <span className="breadcrumb-current">Mon Panier</span>
           </nav>
-          <h1 className="cart-page-title">
-            Mon Panier
-            {cartItems.length > 0 && (
-              <span className="cart-page-count">({cartItems.length} article{cartItems.length > 1 ? 's' : ''})</span>
-            )}
-          </h1>
+          <div className="unified-page-hero-content">
+            <span className="unified-page-eyebrow">✦ COMMANDE EN LIGNE · LIVRAISON EXPRESS ✦</span>
+            <h1 className="unified-page-title">
+              Mon Panier
+              {cartItems.length > 0 && (
+                <span className="nav-badge page-title-badge">{cartItems.length} article{cartItems.length > 1 ? 's' : ''}</span>
+              )}
+            </h1>
+            <p className="unified-page-desc">
+              Vérifiez vos articles, ajustez les quantités et confirmez votre commande facilement avec paiement sécurisé à la livraison.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -20,18 +20,18 @@ export default function ContactPage({ onBackToHome }) {
 
   return (
     <div className="contact-page">
-      {/* Hero */}
-      <section className="contact-hero">
+      {/* Unified Page Header — Light & Elegant */}
+      <section className="unified-page-header">
         <div className="container">
-          <nav className="page-breadcrumb" aria-label="Fil d'Ariane">
+          <nav className="unified-breadcrumb" aria-label="Fil d'Ariane">
             <button type="button" onClick={onBackToHome} className="breadcrumb-link">Accueil</button>
             <span className="breadcrumb-sep">/</span>
             <span className="breadcrumb-current">Contact</span>
           </nav>
-          <div className="contact-hero-content">
-            <span className="contact-hero-eyebrow">✦ NOUS SOMMES LÀ POUR VOUS ✦</span>
-            <h1 className="contact-hero-title">Parlons-nous</h1>
-            <p className="contact-hero-desc">
+          <div className="unified-page-hero-content">
+            <span className="unified-page-eyebrow">✦ NOUS SOMMES LÀ POUR VOUS ✦</span>
+            <h1 className="unified-page-title">Parlons-nous</h1>
+            <p className="unified-page-desc">
               Une question sur une commande, un conseil pour choisir le bon jouet, ou simplement envie de nous dire bonjour ?
               Notre équipe vous répond dans les plus brefs délais.
             </p>
@@ -236,19 +236,19 @@ export default function ContactPage({ onBackToHome }) {
           </div>
           <div className="contact-faq-grid">
             <div className="contact-faq-item">
-              <h4>🚚 Quels sont les délais de livraison ?</h4>
+              <h4><span className="faq-emoji" aria-hidden="true">🚚</span> Quels sont les délais de livraison ?</h4>
               <p>Nous livrons dans toute la Tunisie en 24 à 48h ouvrées après confirmation de commande.</p>
             </div>
             <div className="contact-faq-item">
-              <h4>💳 Comment se passe le paiement ?</h4>
+              <h4><span className="faq-emoji" aria-hidden="true">💳</span> Comment se passe le paiement ?</h4>
               <p>Nous proposons le paiement à la livraison — vous payez uniquement après réception et vérification de votre commande.</p>
             </div>
             <div className="contact-faq-item">
-              <h4>🔄 Puis-je retourner un produit ?</h4>
+              <h4><span className="faq-emoji" aria-hidden="true">🔄</span> Puis-je retourner un produit ?</h4>
               <p>Oui, vous disposez de 7 jours après réception pour retourner un produit en parfait état.</p>
             </div>
             <div className="contact-faq-item">
-              <h4>🎁 Proposez-vous des emballages cadeaux ?</h4>
+              <h4><span className="faq-emoji" aria-hidden="true">🎁</span> Proposez-vous des emballages cadeaux ?</h4>
               <p>Oui ! Mentionnez-le dans les commentaires de votre commande et nous ajouterons un emballage cadeau gratuit.</p>
             </div>
           </div>

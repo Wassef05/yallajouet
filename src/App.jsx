@@ -8,6 +8,7 @@ import BikesPage from './components/BikesPage.jsx'
 import PromotionsPage from './components/PromotionsPage.jsx'
 import ContactPage from './components/ContactPage.jsx'
 import CartPage from './components/CartPage.jsx'
+import ProductDetailPage from './components/ProductDetailPage.jsx'
 import Story from './components/Story.jsx'
 import TrustStrip from './components/TrustStrip.jsx'
 import Newsletter from './components/Newsletter.jsx'
@@ -18,6 +19,7 @@ export default function App() {
   const [catalogCategory, setCatalogCategory] = useState('all')
   const [toastMessage, setToastMessage] = useState(null)
   const [cartItems, setCartItems] = useState([])
+  const [detailProduct, setDetailProduct] = useState(null)
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0)
 
@@ -108,6 +110,12 @@ export default function App() {
     setCartItems([])
   }
 
+  const handleViewDetail = (product) => {
+    setDetailProduct(product)
+    setCurrentView('product')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   const goHome = () => handleNavigate('home')
 
   return (
@@ -125,6 +133,7 @@ export default function App() {
           <HomeSections
             onNavigateToCatalog={(catId) => handleNavigate('catalog', null, null, catId)}
             onAddToCart={handleAddToCart}
+            onViewDetail={handleViewDetail}
           />
           <Story />
           <TrustStrip />
@@ -138,6 +147,7 @@ export default function App() {
             initialCategory={catalogCategory}
             onBackToHome={goHome}
             onAddToCart={handleAddToCart}
+            onViewDetail={handleViewDetail}
           />
           <TrustStrip />
           <Newsletter />
@@ -149,6 +159,7 @@ export default function App() {
           <BikesPage
             onBackToHome={goHome}
             onAddToCart={handleAddToCart}
+            onViewDetail={handleViewDetail}
           />
           <TrustStrip />
           <Newsletter />
@@ -160,6 +171,7 @@ export default function App() {
           <PromotionsPage
             onBackToHome={goHome}
             onAddToCart={handleAddToCart}
+            onViewDetail={handleViewDetail}
           />
           <TrustStrip />
           <Newsletter />
@@ -184,6 +196,20 @@ export default function App() {
         </main>
       )}
 
+      {currentView === 'product' && detailProduct && (
+        <main>
+          <ProductDetailPage
+            product={detailProduct}
+            onAddToCart={handleAddToCart}
+            onBackHome={goHome}
+            onViewDetail={handleViewDetail}
+            onNavigateToCatalog={(catId) => handleNavigate('catalog', null, null, catId)}
+          />
+          <TrustStrip />
+          <Newsletter />
+        </main>
+      )}
+
       <Footer onNavigate={handleNavigate} />
 
       {/* Global Cart Toast */}
@@ -196,3 +222,4 @@ export default function App() {
     </div>
   )
 }
+

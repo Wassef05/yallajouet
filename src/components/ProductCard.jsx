@@ -5,16 +5,7 @@ function formatPrice(value) {
   return `${value.toFixed(2).replace('.', ',')} DT`
 }
 
-// Map category to bespoke artisan value pledge
-const valuePledges = {
-  bikes: { text: 'Bois Écologique & CE', icon: '🚲' },
-  montessori: { text: '100% Éveil Sensoriel', icon: '🌿' },
-  promo: { text: 'Prix Atelier Garanti', icon: '🔥' },
-  puzzles: { text: 'Logique & Réflexion', icon: '🧩' },
-  motricite: { text: 'Motricité Fine & Tri', icon: '🎨' },
-}
-
-export default function ProductCard({ product, onAddToCart }) {
+export default function ProductCard({ product, onAddToCart, onViewDetail }) {
   const [isFavorite, setIsFavorite] = useState(false)
   const [added, setAdded] = useState(false)
 
@@ -32,21 +23,25 @@ export default function ProductCard({ product, onAddToCart }) {
     setIsFavorite(!isFavorite)
   }
 
-  const pledge = valuePledges[product.category] || { text: 'Qualité Certifiée', icon: '✦' }
+  const handleCardClick = (e) => {
+    if (onViewDetail) {
+      e.preventDefault()
+      onViewDetail(product)
+    }
+  }
 
   return (
-    <article className="luxury-product-card compact-artisan-card" id={`product-${product.id}`}>
+    <article
+      className="luxury-product-card compact-artisan-card"
+      id={`product-${product.id}`}
+      onClick={handleCardClick}
+      style={{ cursor: onViewDetail ? 'pointer' : 'default' }}
+    >
       {/* Decorative Artisan Corner Accents */}
       <span className="corner-stitch top-left" aria-hidden="true">✦</span>
       <span className="corner-stitch top-right" aria-hidden="true">✦</span>
       <span className="corner-stitch bottom-left" aria-hidden="true">✦</span>
       <span className="corner-stitch bottom-right" aria-hidden="true">✦</span>
-
-      {/* Value Ribbon Pledge (Gage de valeur original au sommet) */}
-      <div className="card-value-ribbon">
-        <span className="cvr-icon">{pledge.icon}</span>
-        <span className="cvr-text">{pledge.text}</span>
-      </div>
 
       {/* Thumbnail Container */}
       <div className="card-media-wrapper">
@@ -74,14 +69,15 @@ export default function ProductCard({ product, onAddToCart }) {
         </button>
 
         {/* Product Image */}
-        <a href={product.url || '#'} className="card-img-anchor">
+        <div className="card-img-anchor">
           <img
             src={product.image}
             alt={product.name}
             loading="lazy"
             className="card-main-image"
           />
-        </a>
+          <span className="card-view-hint">✦ Voir les détails</span>
+        </div>
 
         {/* Floating Quick Add Pill Button */}
         <div className="card-quick-action">
@@ -120,7 +116,7 @@ export default function ProductCard({ product, onAddToCart }) {
 
         {/* Product Title */}
         <h3 className="card-product-title" title={product.name}>
-          <a href={product.url || '#'}>{product.name}</a>
+          <span>{product.name}</span>
         </h3>
 
         {/* Star Rating */}

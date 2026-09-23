@@ -69,20 +69,7 @@ export default function Hero() {
             pensés pour stimuler l'autonomie, éveiller la motricité fine et révéler le potentiel unique de chaque enfant.
           </p>
 
-          {/* Category Filter Pills (Playful interaction) */}
-          <div className="hero-tag-pills">
-            {['Montessori', '0 - 3 ans', 'Bois naturel', 'Puzzles sensoriels'].map((tag) => (
-              <button
-                key={tag}
-                type="button"
-                className={`tag-pill ${activePill === tag ? 'is-selected' : ''}`}
-                onClick={() => setActivePill(tag)}
-              >
-                {tag === 'Montessori' && '✨ '}
-                {tag}
-              </button>
-            ))}
-          </div>
+
 
           {/* CTA Buttons */}
           <div className="hero-actions">
@@ -160,29 +147,6 @@ export default function Hero() {
 
             {/* Bottom Floating Interactive Card */}
             <div className="floating-product-card">
-              <div className="fp-image-wrap">
-                <img
-                  src="https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/83far96isw4SnFnuk117lU17W1gzZQdI9ugFWRoL.jpg"
-                  alt="Valise d'activités sensorielle Montessori"
-                />
-                <span className="fp-badge-fav">★ Favori</span>
-              </div>
-              <div className="fp-info">
-                <span className="fp-cat">Activité d'éveil sensoriel</span>
-                <h4 className="fp-title">Valise Sensorielle Montessori</h4>
-                <div className="fp-footer">
-                  <div className="fp-pricing">
-                    <span className="fp-price">29.900 DT</span>
-                    <span className="fp-stars">★★★★★</span>
-                  </div>
-                  <a href="#products" className="fp-link" title="Voir le produit">
-                    <span>Voir</span>
-                    <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-                      <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
             </div>
 
             {/* Side Accent Seal */}
