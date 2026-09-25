@@ -97,6 +97,13 @@ export default function Footer({ onNavigate }) {
           <a href="#">Conditions d'utilisation</a>
         </div>
       </div>
+      <div className="footer-beta-bar">
+        <span className="footer-beta-badge">β Version Bêta</span>
+        <span className="footer-beta-sep">·</span>
+        <span className="footer-beta-credit">
+          Développé par <strong>Ing. Wassef Bahrouni</strong>
+        </span>
+      </div>
     </footer>
   )
 }
