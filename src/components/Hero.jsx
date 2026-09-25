@@ -42,49 +42,46 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Mobile-only hero visual — Premium mosaic composition */}
+          {/* Mobile-only hero visual — Tableau vivant / Organic blob */}
           <div className="hero-visual-mobile">
-            <div className="hvm-mosaic">
-              {/* Decorative ring */}
-              <div className="hvm-ring" aria-hidden="true" />
+            <div className="hvm-canvas">
 
-              {/* Main tall portrait image */}
-              <div className="hvm-img-main">
-                <img
-                  src="https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/TSzI7S3JhB2LT8nAccm95L0lMKwRhLQzsaRpSAKs.jpg"
-                  alt="Jouets Montessori Yalla Jouet"
-                  loading="eager"
-                />
-                {/* Rating badge overlay */}
-                <div className="hvm-rating-badge">
-                  <span className="hvm-stars">★★★★★</span>
-                  <span className="hvm-rating-num">4.9</span>
+              {/* Background warm glow canvas */}
+              <div className="hvm-glow" aria-hidden="true" />
+
+              {/* SVG ornament top-right */}
+              <svg className="hvm-ornament hvm-orn-tr" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+                <circle cx="40" cy="40" r="36" stroke="var(--accent)" strokeWidth="1.2" strokeDasharray="3 5" opacity="0.5" />
+                <circle cx="40" cy="40" r="22" stroke="var(--blush-deep)" strokeWidth="1" opacity="0.6" />
+                <text x="40" y="44" textAnchor="middle" fontSize="14" fill="var(--accent)" opacity="0.6">✦</text>
+              </svg>
+
+              {/* SVG ornament bottom-left */}
+              <svg className="hvm-ornament hvm-orn-bl" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+                <path d="M10 50 Q30 10 50 50" stroke="var(--accent)" strokeWidth="1.2" fill="none" opacity="0.4" strokeDasharray="3 4" />
+                <circle cx="10" cy="50" r="3" fill="var(--accent)" opacity="0.35" />
+                <circle cx="50" cy="50" r="3" fill="var(--accent)" opacity="0.35" />
+              </svg>
+
+              {/* Main image in organic blob frame */}
+              <div className="hvm-blob-frame">
+                <div className="hvm-blob-inner">
+                  <img
+                    src="/img/Montessori.jfif"
+                    alt="Jouets Montessori Yalla Jouet"
+                    loading="eager"
+                  />
                 </div>
+                {/* Decorative frame ring */}
+                <div className="hvm-blob-ring" aria-hidden="true" />
               </div>
 
-              {/* Secondary floating card image */}
-              <div className="hvm-img-float">
-                <img
-                  src="https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/iKKtXtezEy6n53orUbvS1YnsnU48tek6ATlypAAb.jpg"
-                  alt=""
-                  loading="lazy"
-                />
+              {/* Eyebrow floating label */}
+              <div className="hvm-label">
+                <span className="hvm-label-dot" />
+                <span>Montessori 2026</span>
               </div>
 
-              {/* Glass badge — wood certified */}
-              <div className="hvm-chip hvm-chip-top">
-                <IconLeaf className="hvm-chip-icon" />
-                <div>
-                  <strong>100% Naturel</strong>
-                  <small>Bois certifié CE</small>
-                </div>
-              </div>
-
-              {/* Stat pill bottom */}
-              <div className="hvm-stat-pill">
-                <span className="hvm-stat-num">500+</span>
-                <span className="hvm-stat-lbl">familles satisfaites</span>
-              </div>
             </div>
           </div>
 
@@ -150,11 +147,11 @@ export default function Hero() {
             <div className="stamp-center-star">✦</div>
           </div>
 
-          {/* Main Visual Composition with Arch Frame */}
+          {/* Main Visual Composition — Desktop Arch Frame */}
           <div className="hero-arch-card">
             <div className="arch-inner">
               <img
-                src="https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/TSzI7S3JhB2LT8nAccm95L0lMKwRhLQzsaRpSAKs.jpg"
+                src="/img/Montessori.jfif"
                 alt="Enfants jouant et développant leur curiosité avec des jouets en bois"
                 className="arch-img"
               />
