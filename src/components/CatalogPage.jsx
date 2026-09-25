@@ -268,6 +268,7 @@ export default function CatalogPage({ initialCategory = 'all', onBackToHome, onA
                     key={pack.id}
                     pack={pack}
                     onAddToCart={onAddToCart}
+                    onViewDetail={onViewDetail}
                   />
                 ))}
               </div>

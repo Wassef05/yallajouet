@@ -62,7 +62,7 @@ export default function ProductDetailPage({
     product.description ||
     `Conçu avec amour et rigueur pédagogique, ce jouet d'éveil favorise le développement sensoriel, la motricité et l'autonomie de l'enfant dans le respect des principes Montessori.`
 
-  const features = product.features || [
+  const features = product.items || product.features || [
     'Matériaux naturels écologiques et finitions non toxiques',
     'Conforme aux normes de sécurité européennes CE',
     "Développe l'autonomie et la coordination motrice",
@@ -146,11 +146,13 @@ export default function ProductDetailPage({
             <h1 className="pdp-title">{product.name}</h1>
             {product.detail && <p className="pdp-subtitle">{product.detail}</p>}
 
-            <div className="pdp-rating">
-              <span className="pdp-stars" aria-hidden="true">★★★★★</span>
-              <strong>{product.rating || 4.9}</strong>
-              <span className="pdp-reviews">({product.reviews || 24} avis vérifiés de parents)</span>
-            </div>
+            {product.rating && (
+              <div className="pdp-rating">
+                <span className="pdp-stars" aria-hidden="true">★★★★★</span>
+                <strong>{product.rating}</strong>
+                <span className="pdp-reviews">({product.reviews} avis vérifiés de parents)</span>
+              </div>
+            )}
 
             <div className="pdp-pricing">
               <div className="pdp-prices">

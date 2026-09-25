@@ -1,98 +1,134 @@
 import { useState } from 'react'
+import { IconCart } from '../assets/icons.jsx'
 
-function formatPriceNumber(val) {
-  if (typeof val !== 'number') return val
-  return val.toFixed(3)
+function formatPrice(value) {
+  return `${value.toFixed(2).replace('.', ',')} DT`
 }
 
-export default function PromoPackCard({ pack, onAddToCart }) {
+function formatDiscount(pack) {
+  if (!pack.oldPrice || pack.oldPrice <= pack.price) return null
+  const pct = Math.round((1 - pack.price / pack.oldPrice) * 100)
+  return `-${pct}%`
+}
+
+/**
+ * Card pack promotionnel — contour architectural droit & bas conservé,
+ * ouverture de la page de détail interne (aucun lien externe).
+ */
+export default function PromoPackCard({ pack, onAddToCart, onViewDetail }) {
   const [added, setAdded] = useState(false)
 
   const handleAdd = (e) => {
-    e.preventDefault()
     e.stopPropagation()
     setAdded(true)
     if (onAddToCart) onAddToCart(pack)
     setTimeout(() => setAdded(false), 2000)
   }
 
+  const openDetail = () => {
+    if (onViewDetail) onViewDetail(pack)
+  }
+
+  const discount = formatDiscount(pack)
+
   return (
-    <article className="promo-pack-card" id={`promo-${pack.id}`}>
-      {/* Top Banner Ribbon Flag "OFFRES EXCLUSIVES" */}
+    <article
+      className="promo-pack-card"
+      id={`promo-${pack.id}`}
+      onClick={openDetail}
+      style={{ cursor: onViewDetail ? 'pointer' : 'default' }}
+    >
+      {/* Bandeau "OFFRE EXCLUSIVE" en drapeau */}
       <div className="promo-ribbon-tag">
-        <span className="prt-text">OFFRES EXCLUSIVES</span>
+        <span className="prt-text">✦ OFFRE EXCLUSIVE</span>
       </div>
 
-      {/* Large Showcase Image (Mis en valeur & Grand) */}
-      <div className="promo-image-showcase">
-        <a
-          href={pack.url || '#'}
-          className="promo-img-link"
-          title={`Voir les détails de ${pack.name}`}
-        >
-          <img
-            src={pack.image}
-            alt={pack.name}
-            loading="lazy"
-            className="promo-pack-image"
-          />
-        </a>
+      {/* Cachet de réduction */}
+      {discount && (
+        <span className="pp-stamp" aria-label={`Remise ${discount}`}>
+          {discount}
+        </span>
+      )}
 
-        {/* Quick Add floating pill on image */}
+      {/* Visuel du pack sur fond à pois */}
+      <div className="promo-image-showcase">
+        <img
+          src={pack.image}
+          alt={pack.name}
+          loading="lazy"
+          className="promo-pack-image"
+        />
+
+        {/* Ajout rapide au panier (au survol) */}
         <button
           type="button"
           className={`promo-pack-cta-btn ${added ? 'is-added' : ''}`}
           onClick={handleAdd}
           aria-label={`Ajouter ${pack.name} au panier`}
         >
-          {added ? '✓ Ajouté' : '+ Panier'}
+          {added ? (
+            <>
+              <span className="pp-check">✓</span> Ajouté
+            </>
+          ) : (
+            <>
+              <IconCart /> Panier
+            </>
+          )}
         </button>
       </div>
 
-      {/* Card Content: Just title, strikethrough price & current price */}
+      {/* Contenu : marque, titre, inclus, prix */}
       <div className="promo-card-content">
-        {/* Product Title (Nom de produit comme titre) */}
-        <h3 className="promo-pack-title">
-          <a href={pack.url || '#'} title={`Voir les détails de ${pack.name}`}>
-            {pack.name}
-          </a>
+        <span className="pp-brand">{pack.brand}</span>
+
+        <h3 className="promo-pack-title" title={pack.name}>
+          {pack.name}
         </h3>
 
-        {/* Pricing & Detail Action Row */}
+        {pack.items && pack.items.length > 0 && (
+          <span className="pp-items-chip">
+            {pack.items.length} articles inclus
+          </span>
+        )}
+
         <div className="promo-pricing-row">
           <div className="promo-prices-stack">
             {pack.oldPrice && (
               <span className="promo-old-price">
-                {formatPriceNumber(pack.oldPrice)} <small className="curr">DT</small>
+                {formatPrice(pack.oldPrice)}
               </span>
             )}
 
-            {/* Solid Terracotta Price Box (non-barré) */}
             <button
               type="button"
               className="promo-price-badge-btn"
               onClick={handleAdd}
-              title={`Commander ${pack.name} à ${formatPriceNumber(pack.price)} DT`}
+              title={`Commander ${pack.name} à ${formatPrice(pack.price)}`}
               aria-label={`Commander ${pack.name}`}
             >
-              <span className="ppb-num">{formatPriceNumber(pack.price)}</span>
-              <span className="ppb-curr">DT</span>
+              {added ? (
+                <span className="ppb-num is-added-label">✓ Ajouté !</span>
+              ) : (
+                <>
+                  <span className="ppb-num">{formatPrice(pack.price).replace(' DT', '')}</span>
+                  <span className="ppb-curr">DT</span>
+                </>
+              )}
             </button>
           </div>
 
-          {/* Link to product detail page */}
-          <a
-            href={pack.url || '#'}
+          <button
+            type="button"
             className="promo-detail-btn"
+            onClick={openDetail}
             title={`Voir les détails complets de ${pack.name}`}
           >
             <span>Détails</span>
             <span className="pdb-arrow">→</span>
-          </a>
+          </button>
         </div>
       </div>
     </article>
   )
 }
-
-

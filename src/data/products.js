@@ -352,6 +352,8 @@ export const promoPacks = [
     id: 'pack-lego-villa',
     name: 'PACK LEGO VILLA CABANE ENCHANTÉE',
     brand: 'YALLA ATELIER',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'GRANDE VILLA 350 PIÈCES MODULAIRES',
       'FIGURINES FAMILLE & MOBILIER INCLUS',
@@ -361,12 +363,16 @@ export const promoPacks = [
     price: 89.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/TSzI7S3JhB2LT8nAccm95L0lMKwRhLQzsaRpSAKs.jpg',
+    description:
+      'Une grande villa enchantée de 350 pièces modulaires à construire en famille : figurines, mobilier et notice illustrée inclus pour des heures de création, de logique et d’imagination.',
     url: 'https://yallajouet.com/products/lego-villa-copy-1',
   },
   {
     id: 'pack-eveil-montessori',
     name: 'PACK DUO ÉVEIL TOTAL MONTESSORI',
     brand: 'MONTESSORI ÉVEIL',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'VALISE D’ACTIVITÉS SENSORIELLE MULTI-FACES',
       'BOÎTE 12 ŒUFS COULEURS & FORMES 3D',
@@ -376,12 +382,16 @@ export const promoPacks = [
     price: 54.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/83far96isw4SnFnuk117lU17W1gzZQdI9ugFWRoL.jpg',
+    description:
+      'Le duo parfait pour l’éveil de bébé : une valise d’activités sensorielles multi-faces et une boîte de 12 œufs 3D à assortir, accompagnées d’un guide pédagogique Montessori offert.',
     url: 'https://yallajouet.com/products/valise-dactivites-sensorielle-montessori',
   },
   {
     id: 'pack-geoboard-bois',
     name: 'PACK GÉOBOARD BOIS & MOTRICITÉ',
     brand: 'GÉOMÉTRIE & ÉVEIL',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'TABLEAU BOIS À PICOTS NATUREL',
       'LOT ÉLASTIQUES MULTICOLORES',
@@ -391,12 +401,16 @@ export const promoPacks = [
     price: 39.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/iKKtXtezEy6n53orUbvS1YnsnU48tek6ATlypAAb.jpg',
+    description:
+      'Un tableau en bois à picots naturels avec élastiques multicolores et cartes de modèles progressifs pour développer la motricité fine, la géométrie et la créativité en s’amusant.',
     url: 'https://yallajouet.com/products/geoboard-montessori',
   },
   {
     id: 'pack-detective-action',
     name: 'PACK OBSERVATION & DÉTECTIVE EN ACTION',
     brand: 'JEUX COLLECTIFS',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'JEU DE SOCIÉTÉ DÉTECTIVE EN ACTION',
       'GÉOBOARD BOIS ÉLASTIQUES & CARTES',
@@ -406,12 +420,16 @@ export const promoPacks = [
     price: 62.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/iENlnNXWaqrb2Gn0BTi76aeF0Rv1vQHpJtgsORZN.jpg',
+    description:
+      'Un duo gagnant pour les soirées en famille : le jeu d’observation Detective en Action et un géoboard en bois avec ses cartes défis, réunis dans une pochette avec chrono inclus.',
     url: 'https://yallajouet.com/products/jeu-de-societe-detective-en-action',
   },
   {
     id: 'pack-five-column-fruits',
     name: 'PACK APPRENTISSAGE 3 EN 1 & FORMES',
     brand: 'ÉVEIL COGNITIF',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'FIVE COLUMN COMPTAGE & FORMES 3 EN 1',
       'JEU FRUIT COLOR TRI DES COULEURS',
@@ -421,12 +439,16 @@ export const promoPacks = [
     price: 49.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/tckYxwY0N5ntEYXqRpxKFGlBA3tbJhIFHOslsgq5.jpg',
+    description:
+      'Un coffret 3 en 1 pour apprendre à compter, trier les formes et associer les couleurs : le Five Column, le jeu Fruit Color et un sac de rangement en coton bio inclus.',
     url: 'https://yallajouet.com/products/five-column',
   },
   {
     id: 'pack-labyrinthe-puzzle',
     name: 'PACK LABYRINTHE MAGNÉTIQUE & BILLES',
     brand: 'MOTRICITÉ FINE',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'LABYRINTHE BILLES STYLET MAGNÉTIQUE',
       'PUZZLE ÉVOLUTIF LEVEL UP 60 PCS',
@@ -436,12 +458,16 @@ export const promoPacks = [
     price: 52.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/edctjlsoafWzlGuufdCjhR7EiYOo6tzV2kHSNHEC.jpg',
+    description:
+      'Un labyrinthe à billes au stylet magnétique et un puzzle évolutif de 60 pièces pour renforcer la concentration et la motricité fine, avec un livret d’activités calmes offert.',
     url: 'https://yallajouet.com/products/magnetic-maze-beads',
   },
   {
     id: 'pack-oeufs-valise',
     name: 'PACK ŒUFS ASSORTIS & RECONNAISSANCE 3D',
     brand: 'ATELIER BÉBÉ',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'BOÎTE 12 ŒUFS MONTESSORI 3D',
       'VALISE SENSORIELLE FERMETURES',
@@ -451,12 +477,16 @@ export const promoPacks = [
     price: 48.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/pQhlAN2QOy97ReHpl74Hy2svmqxmgVxqCATDeKPr.jpg',
+    description:
+      'Le duo d’éveil idéal pour les petits : 12 œufs Montessori 3D à assortir par couleur et forme, et une valise sensorielle à fermetures, avec un pochon de voyage lavable offert.',
     url: 'https://yallajouet.com/products/oeufs-assortis-montessori',
   },
   {
     id: 'pack-fruit-color',
     name: 'PACK FRUIT COLOR & TRI DES COULEURS',
     brand: 'TRI & CLASSEMENT',
+    tag: 'Pack Exclusif',
+    category: 'promo',
     items: [
       'JEU FRUIT COLOR PINCE ET BOLS',
       'FIGURINES FRUITS BOIS MASSIF',
@@ -466,6 +496,8 @@ export const promoPacks = [
     price: 44.98,
     image:
       'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/w8G1Xe2iizPafkXeTZSfkwLrN9QuRgByJzSmqJLP.jpg',
+    description:
+      'Un jeu de tri des couleurs avec pince à préhension, bols, figurines fruits en bois massif et cartes de défis d’association pour affiner la précision gestuelle de l’enfant.',
     url: 'https://yallajouet.com/products/fruit-color',
   },
 ]
@@ -490,12 +522,36 @@ export const trustPoints = [
   },
 ]
 
+// Catégories de la vitrine d'accueil — photos réelles du catalogue,
+// alignées sur les catégories réellement filtrables du site
 export const categories = [
-  { id: 'bikes', label: 'Draisiennes & Vélos', icon: 'bike' },
-  { id: 'montessori', label: 'Montessori', icon: 'blocks' },
-  { id: 'puzzles', label: 'Puzzles', icon: 'puzzle' },
-  { id: 'construction', label: 'Construction', icon: 'brick' },
-  { id: 'sensory', label: 'Sensoriel', icon: 'star' },
-  { id: 'gifts', label: 'Cadeaux & Coffrets', icon: 'gift' },
-  { id: 'promo', label: 'Promotions', icon: 'sparkle' },
+  {
+    id: 'bikes',
+    label: 'Draisiennes & Vélos',
+    image: '/img/velo1.webp',
+  },
+  {
+    id: 'montessori',
+    label: 'Montessori & Éveil',
+    image:
+      'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/83far96isw4SnFnuk117lU17W1gzZQdI9ugFWRoL.jpg',
+  },
+  {
+    id: 'puzzles',
+    label: 'Puzzles & Société',
+    image:
+      'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/A2rSndOw24JzvWFaGOEBlTSZ5pW3Plqwyi4oyIAK.jpg',
+  },
+  {
+    id: 'motricite',
+    label: 'Motricité & Tri',
+    image:
+      'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/w8G1Xe2iizPafkXeTZSfkwLrN9QuRgByJzSmqJLP.jpg',
+  },
+  {
+    id: 'promo',
+    label: 'Promotions',
+    image:
+      'https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/TSzI7S3JhB2LT8nAccm95L0lMKwRhLQzsaRpSAKs.jpg',
+  },
 ]

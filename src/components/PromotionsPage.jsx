@@ -1,6 +1,6 @@
 import { allProducts, promoPacks } from '../data/products.js'
 import ProductCard from './ProductCard.jsx'
-import PromoPackCard from './PromoPackCard.jsx'
+import PromoPacksSection from './PromoPacksSection.jsx'
 
 export default function PromotionsPage({ onBackToHome, onAddToCart, onViewDetail }) {
   const promoProducts = allProducts.filter((p) => p.oldPrice !== null || p.category === 'promo')
@@ -65,28 +65,11 @@ export default function PromotionsPage({ onBackToHome, onAddToCart, onViewDetail
         </div>
       </section>
 
-      {/* Packs Exclusifs */}
-      <section className="promos-packs-section">
-        <div className="container">
-          <div className="promos-section-header">
-            <span className="section-eyebrow">✦ PACKS & COFFRETS EXCLUSIFS ✦</span>
-            <h2 className="promos-section-title">Les Packs Promotionnels Exclusifs</h2>
-            <p className="promos-section-desc">
-              Des coffrets complets soigneusement composés, associant nos meilleurs jouets d'éveil,
-              accessoires de sécurité et cadeaux offerts aux meilleurs prix.
-            </p>
-          </div>
-          <div className="promo-packs-grid">
-            {promoPacks.map((pack) => (
-              <PromoPackCard
-                key={pack.id}
-                pack={pack}
-                onAddToCart={onAddToCart}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Packs Exclusifs — même design que la page d'accueil */}
+      <PromoPacksSection
+        onAddToCart={onAddToCart}
+        onViewDetail={onViewDetail}
+      />
 
       {/* Produits individuels en promo */}
       <section className="promos-products-section">
