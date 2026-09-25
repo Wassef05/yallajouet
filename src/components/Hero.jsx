@@ -42,23 +42,48 @@ export default function Hero() {
             </span>
           </h1>
 
-          {/* Mobile-only hero visual image */}
+          {/* Mobile-only hero visual — Premium mosaic composition */}
           <div className="hero-visual-mobile">
-            <div className="hero-arch-card">
-              <div className="arch-inner">
+            <div className="hvm-mosaic">
+              {/* Decorative ring */}
+              <div className="hvm-ring" aria-hidden="true" />
+
+              {/* Main tall portrait image */}
+              <div className="hvm-img-main">
                 <img
                   src="https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/TSzI7S3JhB2LT8nAccm95L0lMKwRhLQzsaRpSAKs.jpg"
-                  alt="Enfants jouant et développant leur curiosité avec des jouets en bois"
-                  className="arch-img"
+                  alt="Jouets Montessori Yalla Jouet"
+                  loading="eager"
                 />
-                <div className="arch-overlay-gradient" />
-              </div>
-              <div className="floating-chip chip-top">
-                <IconLeaf className="chip-icon" />
-                <div className="chip-text">
-                  <strong>100% Bois Sain</strong>
-                  <small>Finition cire végétale</small>
+                {/* Rating badge overlay */}
+                <div className="hvm-rating-badge">
+                  <span className="hvm-stars">★★★★★</span>
+                  <span className="hvm-rating-num">4.9</span>
                 </div>
+              </div>
+
+              {/* Secondary floating card image */}
+              <div className="hvm-img-float">
+                <img
+                  src="https://cdn.youcan.shop/stores/8d39b488cab6185a812c8bd011d3ad36/products/iKKtXtezEy6n53orUbvS1YnsnU48tek6ATlypAAb.jpg"
+                  alt=""
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Glass badge — wood certified */}
+              <div className="hvm-chip hvm-chip-top">
+                <IconLeaf className="hvm-chip-icon" />
+                <div>
+                  <strong>100% Naturel</strong>
+                  <small>Bois certifié CE</small>
+                </div>
+              </div>
+
+              {/* Stat pill bottom */}
+              <div className="hvm-stat-pill">
+                <span className="hvm-stat-num">500+</span>
+                <span className="hvm-stat-lbl">familles satisfaites</span>
               </div>
             </div>
           </div>
